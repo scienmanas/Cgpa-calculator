@@ -2,7 +2,7 @@
 
 This is a cgpa calculator for IIT Tirupati students, the insittute erp portal only shows grade achieved, it neither shows individual credits and some lazy student like us wanted a shortcut, So here it is, a python programme to calculate your cgpa without much effort.
 
-To use it, proceed with the following instructions(do it in a code editor):
+To use it, proceed with the following instructions(do it in a code editor:
 
 1. Change the self.user_id and self.password of file login.py on line 6 and 7 to your own in double quotes.
    
