@@ -12,9 +12,17 @@ To use it, proceed with the following instructions(do it in a code editor:
  
 ![alt text](https://github.com/scienmanas/Cgpa-calculator/blob/main/Refernce%20Images/2.png)
 
+3. If you don't have selenium installed run the following command in your terminal
 
+```
+pip install selenium
+```
+> or
+```
+ pip3 install selenium
+```
 
-3. Finally run the main.py file
+4. Finally run the main.py file
 
 
 Enjoy🙂
