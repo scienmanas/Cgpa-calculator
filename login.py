@@ -2,9 +2,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 class Login() :
-    def __init__(self) -> None:
-        self.user_id = "Your Roll No."
-        self.password = "Your Password"
+    def __init__(self,user,passw) -> None:
+        self.user_id = user
+        self.password = passw
         
     def PerformLogin(self,driver) :
         # For student login Page

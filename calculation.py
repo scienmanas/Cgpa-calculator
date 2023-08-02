@@ -1,8 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import pandas as pd
-from tkinter import Tk, messagebox
-INDEN = "------------------------------------------\n"
+
 
 class Calculation() :
     def __init__(self,driver) :
@@ -20,7 +19,8 @@ class Calculation() :
         'Y' : 0
         }
         self.driver = driver
-        self.Cgpa = 0.0
+        self.GPA = []
+        self.CGPA = 0.0
         self.Total_Credits_sem = [] 
         self.Total_Point_sem = []
         self.data_df = pd.read_csv(r"Cgpa-calculator\data.csv")
@@ -67,19 +67,11 @@ class Calculation() :
             Points_ += credit_of_sub*(self.grade.get(grade_achieved))
         return (Credits_,Points_)
     
-    def Display(self) :
-        self.window = Tk()
-        self.window.withdraw()
-        self.window.attributes('-topmost', True)
-        self.DisplayText ="Your Calculated Gpa/Cgpa are as follows : \n\n"
+    def ReturnCalculatedValues(self) :
         for i in range(len(self.Total_Credits_sem)) :
-            gpa = self.Total_Point_sem[i]/self.Total_Credits_sem[i]
-            self.DisplayText += f"Gpa of {i+1} sem is : {gpa}\n"
-        self.DisplayText += INDEN
-        Cgpa = sum(self.Total_Point_sem)/sum(self.Total_Credits_sem)
-        self.DisplayText += f"Total Cgpa = {Cgpa}\n"
-        self.DisplayText += INDEN
-        messagebox.showinfo(title=f"Your Grades",message=self.DisplayText)
+            self.GPA.append(self.Total_Point_sem[i]/self.Total_Credits_sem[i])
+        self.CGPA = sum(self.Total_Point_sem)/sum(self.Total_Credits_sem)
+        return (self.GPA,self.CGPA)
         
         
             

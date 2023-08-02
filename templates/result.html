@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='style_result.css')}}">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .content-table th,
+        .content-table td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .result {
+            text-align: center;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>Semester</th>
+                <th>GPA Scored</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(data[0]|length) %}
+            <tr>
+                <td>{{i + 1}}</td>
+                <td>{{data[0][i]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="result">
+        <h2>CGPA Scored: {{data[1]}}</h2>
+    </div>
+    </div>
+</body>
+</html>
